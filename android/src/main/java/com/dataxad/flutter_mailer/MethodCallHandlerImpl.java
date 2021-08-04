@@ -92,11 +92,14 @@ class MethodCallHandlerImpl implements MethodChannel.MethodCallHandler, PluginRe
 
     @Override
     public boolean onActivityResult(int requestCode, int resultCode, Intent intent) {
+        if(resultCode != Activity.RESULT_CANCELED){
         if (requestCode == MAIL_ACTIVITY_REQUEST_CODE && mResult != null) {
             mResult.success("android");
             return false;
         }
+        }
         return false;
+        
     }
 
 
